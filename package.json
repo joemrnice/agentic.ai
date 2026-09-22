@@ -1,0 +1,56 @@
+{
+  "name": "agentic.ai",
+  "version": "1.0.0",
+  "description": "A zero-dependency, production-shaped scaffold for building autonomous AI agents: reason/act loop, tool registry, memory, workflows and observability.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./agent": "./src/core/agent.js",
+    "./tools": "./src/tools/index.js",
+    "./workflows": "./src/workflows/runner.js"
+  },
+  "bin": {
+    "agentic": "./src/cli.js"
+  },
+  "files": [
+    "src",
+    "agents",
+    "workflows",
+    "docs",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node src/cli.js run",
+    "agent": "node src/cli.js run --agent",
+    "workflow": "node src/cli.js workflow",
+    "tools": "node src/cli.js tools",
+    "agents": "node src/cli.js agents",
+    "config": "node src/cli.js config",
+    "example": "node examples/01-hello-agent.js",
+    "examples": "node examples/01-hello-agent.js && node examples/02-custom-tool.js && node examples/03-workflow.js",
+    "dev": "node --watch examples/01-hello-agent.js",
+    "test": "node --test \"tests/**/*.test.js\"",
+    "test:watch": "node --test --watch \"tests/**/*.test.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joemrnice/agentic.ai.git"
+  },
+  "keywords": [
+    "agentic-ai",
+    "ai-agents",
+    "llm",
+    "autonomous-agents",
+    "tool-use",
+    "react-pattern",
+    "orchestration",
+    "workflows"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/joemrnice/agentic.ai/issues"
+  },
+  "homepage": "https://github.com/joemrnice/agentic.ai#readme"
+}

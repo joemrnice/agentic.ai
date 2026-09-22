@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# environment / secrets
+.env
+.env.*
+!.env.example
+
+# agent runtime artifacts
+memory/*.json
+memory/*.jsonl
+logs/
+*.log
+runs/
+tmp/
+
+# build output & caches
+dist/
+build/
+coverage/
+.nyc_output/
+.cache/
+
+# editors / os
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

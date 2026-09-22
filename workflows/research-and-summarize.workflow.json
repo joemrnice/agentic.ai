@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "name": "research-and-summarize",
+  "description": "Map the workspace, then have the researcher agent write a short brief about it. Demonstrates tool steps, agent steps and output interpolation.",
+  "inputs": {
+    "focus": "the overall repository layout and entry points"
+  },
+  "steps": [
+    {
+      "id": "scan",
+      "uses": "tool",
+      "tool": "fs.list",
+      "input": { "path": "." },
+      "description": "List the workspace root so the agent has ground truth about the repository shape."
+    },
+    {
+      "id": "brief",
+      "uses": "agent",
+      "agent": "../agents/researcher.agent.json",
+      "dependsOn": ["scan"],
+      "input": "Focus: {{inputs.focus}}\n\nWorkspace root contents (JSON):\n{{steps.scan.output}}\n\nWrite the brief."
+    }
+  ],
+  "output": "{{steps.brief.output}}"
+}
